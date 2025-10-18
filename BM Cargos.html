@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Envíos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f9;
+      background: #eef2f7;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .main-container {
+      display: flex;
+      gap: 20px; /* Espacio entre los botones y el formulario */
+      align-items: flex-start;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .btn-square {
+      width: 60px;
+      height: 60px;
+      background: #0078d7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    .btn-square:hover {
+      background: #005a9e;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      padding: 30px;
+      width: 500px; /* Ancho ampliado */
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 0;
+      color: #0078d7;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #333;
+    }
+    .inline-fields {
+      display: flex;
+      gap: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    input:focus, select:focus {
+      border-color: #0078d7;
+      outline: none;
+      box-shadow: 0 0 4px rgba(0,120,215,0.3);
+    }
+    .hidden {
+      display: none;
+    }
+    button[type="submit"] {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      background: #0078d7;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button[type="submit"]:hover {
+      background: #005a9e;
+    }
+    .resumen {
+      margin-top: 25px;
+      padding: 15px;
+      background: #f9fafc;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .resumen h3 {
+      margin-top: 0;
+      color: #444;
+    }
+    #iniciales, #inicialesValija {
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="button-container">
+      <button class="btn-square" onclick="modificarRegistro()">MR</button>
+      <button class="btn-square" onclick="borrarRegistro()">BR</button>
+      <button class="btn-square" onclick="buscarGuia()">BG</button>
+      <button class="btn-square" onclick="eliminarGuia()">EG</button>
+    </div>
+    <div class="card">
+      <h2>Formulario de Envíos</h2>
+      <form id="formEnvio">
+        <label for="guia">No. de Guía</label>
+        <input type="text" id="guia" name="guia" required>
+
+        <label for="tipo">Tipo de Envío</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Seleccione...</option>
+          <option value="valija">Valija</option>
+          <option value="pallet">Pallet</option>
+          <option value="dcontainer">D Container</option>
+          <option value="uld">U. L. D.</option>
+          <option value="piezas">Piezas</option>
+        </select>
+
+        <!-- Campos Valija -->
+        <div id="valijaFields" class="hidden">
+          <label for="numValija">Número de Valija</label>
+          <input type="text" id="numValija" name="numValija">
+
+          <label for="pesoValija">Peso (kg)</label>
+          <input type="number" id="pesoValija" name="pesoValija" step="0.01" min="0">
+
+          <label for="sello">Número de Sello</label>
+          <input type="text" id="sello" name="sello">
+
+          <label for="warehouse">Cantidad de Warehouse</label>
+          <input type="number" id="warehouse" name="warehouse" min="0">
+
+          <label for="inicialesValija">Iniciales (2 letras)</label>
+          <input type="text" id="inicialesValija" name="inicialesValija" maxlength="2">
+        </div>
+
+        <!-- Campos Pallet / Piezas -->
+        <div id="palletPiezasFields" class="hidden">
+          <label for="numPallet">Número de Pallet</label>
+          <input type="text" id="numPallet" name="numPallet">
+
+          <label for="peso">Peso (kg)</label>
+          <input type="number" id="peso" name="peso" step="0.01" min="0" style="width: 100%;">
+
+         <div class="inline-fields">
+            <div><label for="largo">Largo (in)</label>
+            <input type="number" id="largo" name="largo" min="0" style="width: 90px;"></div>
+
+            <div><label for="ancho">Ancho (in)</label>
+            <input type="number" id="ancho" name="ancho" min="0" style="width: 90px;"></div>
+
+           <div> <label for="altura">Altura (in)</label>
+            <input type="number" id="altura" name="altura" min="0" style="width: 90px;"></div>
+          </div>
+
+          <label for="warehouse_pallet">Cantidad de Warehouse</label>
+          <input type="number" id="warehouse_pallet" name="warehouse_pallet" min="0">
+
+          <label for="iniciales">Iniciales (2 letras)</label>
+          <input type="text" id="iniciales" name="iniciales" maxlength="2">
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div id="resumen-container" class="resumen hidden">
+        <div id="resumen"></div>
+        <button id="generarPdfBtn" class="hidden">Generar PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Librerías para generar PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+
+  <script>
+    const tipoSelect = document.getElementById('tipo');
+    const valijaFields = document.getElementById('valijaFields');
+    const palletPiezasFields = document.getElementById('palletPiezasFields');
+    const form = document.getElementById('formEnvio');
+    const resumenDiv = document.getElementById('resumen');
+    const resumenContainer = document.getElementById('resumen-container');
+    const generarPdfBtn = document.getElementById('generarPdfBtn');
+    const guiaInput = document.getElementById('guia');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    let envios = {};
+    let indiceItemEnEdicion = null; // Para saber qué item estamos editando
+
+    // Funciones para los nuevos botones
+    function modificarRegistro() {
+      const guia = guiaInput.value.trim();
+      if (!guia || !envios[guia] || envios[guia].length === 0) {
+        alert("No hay registros en la guía actual para modificar.");
+        return;
+      }
+
+      const itemNum = prompt("Ingrese el número de envío que desea modificar:");
+      if (!itemNum) return;
+
+      const indice = envios[guia].findIndex(item => item.numPallet === itemNum || item.numValija === itemNum);
+
+      if (indice === -1) {
+        alert("No se encontró ningún item con ese número en la guía actual.");
+        return;
+      }
+
+      indiceItemEnEdicion = indice;
+      const item = envios[guia][indice];
+
+      // Cargar datos en el formulario
+      form.reset(); // Limpiar formulario antes de cargar
+      guiaInput.value = guia; // Restaurar el número de guía
+
+      for (const key in item) {
+        if (form.elements[key]) {
+          form.elements[key].value = item[key];
+        }
+      }
+      
+      // Mostrar los campos correctos según el tipo
+      tipoSelect.dispatchEvent(new Event('change'));
+      
+      submitButton.textContent = 'Actualizar'; // Cambiar texto del botón
+      window.scrollTo(0, 0); // Subir al inicio del formulario
+    }
+
+    function borrarRegistro() {
+      const guia = guiaInput.value.trim();
+      if (!guia || !envios[guia] || envios[guia].length === 0) {
+        alert("No hay registros en la guía actual para borrar.");
+        return;
+      }
+
+      const itemNum = prompt("Ingrese el número de envío que desea borrar:");
+      if (!itemNum) return;
+
+      const indice = envios[guia].findIndex(item => item.numPallet === itemNum || item.numValija === itemNum);
+
+      if (indice === -1) {
+        alert("No se encontró ningún item con ese número en la guía actual.");
+        return;
+      }
+
+      const itemParaBorrar = envios[guia][indice];
+      const confirmacion = confirm(`¿Está seguro de que desea borrar el item "${itemParaBorrar.numPallet || itemParaBorrar.numValija}"?`);
+
+      if (confirmacion) {
+        envios[guia].splice(indice, 1);
+        actualizarResumen(guia);
+        saveData();
+        alert("Registro borrado exitosamente.");
+      }
+    }
+
+    function buscarGuia() {
+      const guiasGuardadas = Object.keys(envios);
+      if (guiasGuardadas.length === 0) {
+        alert("No hay guías guardadas para buscar.");
+        return;
+      }
+
+      const ultimasDiez = guiasGuardadas.slice(-10).reverse();
+      const mensaje = "Últimas 10 guías guardadas:\n\n" + ultimasDiez.join("\n") + "\n\nIngrese el número de la guía que desea cargar:";
+
+      const guiaSeleccionada = prompt(mensaje);
+
+      if (guiaSeleccionada && envios[guiaSeleccionada]) {
+        guiaInput.value = guiaSeleccionada;
+        // Disparar el evento 'input' para que se actualice el resumen
+        guiaInput.dispatchEvent(new Event('input'));
+      } else if (guiaSeleccionada) {
+        alert("El número de guía ingresado no existe.");
+      }
+    }
+
+    function eliminarGuia() {
+      const guiaAEliminar = prompt("Ingrese el número de la guía que desea eliminar por completo:");
+
+      if (!guiaAEliminar) return;
+
+      if (envios[guiaAEliminar]) {
+        const confirmacion = confirm(`¿Está seguro de que desea eliminar permanentemente la guía "${guiaAEliminar}" y todos sus registros? Esta acción no se puede deshacer.`);
+
+        if (confirmacion) {
+          delete envios[guiaAEliminar];
+          saveData();
+
+          // Si la guía eliminada era la que se estaba mostrando, limpiar la vista
+          if (guiaInput.value === guiaAEliminar) {
+            form.reset();
+            resumenDiv.innerHTML = '';
+            resumenContainer.classList.add('hidden');
+          }
+
+          alert(`La guía "${guiaAEliminar}" ha sido eliminada.`);
+        }
+      } else {
+        alert("No se encontró ninguna guía con ese número.");
+      }
+    }
+
+    function saveData() {
+      localStorage.setItem('enviosData', JSON.stringify(envios));
+    }
+
+    function loadData() {
+      const data = localStorage.getItem('enviosData');
+      if (data) {
+        envios = JSON.parse(data);
+        const lastGuia = Object.keys(envios).pop();
+        if(lastGuia){
+            guiaInput.value = lastGuia;
+            actualizarResumen(lastGuia);
+            resumenContainer.classList.remove('hidden');
+        }
+      }
+    }
+
+    window.addEventListener('load', loadData);
+
+    function generarPDF() {
+      const guia = guiaInput.value.trim();
+      if (!guia || !envios[guia] || envios[guia].length === 0) {
+        alert("No hay datos en la guía actual para generar un informe.");
+        return;
+      }
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const pageHeight = doc.internal.pageSize.height;
+      let finalY = 0;
+
+      // --- 1. ENCABEZADO ---
+      doc.setFont('Arial', 'bold');
+      doc.setFontSize(16);
+      doc.text("INFORME DE LA APLICACIÓN", doc.internal.pageSize.width / 2, 20, { align: 'center' });
+
+      doc.setFont('Arial', 'normal');
+      doc.setFontSize(10);
+      doc.text(`Número de Guía: ${guia}`, 14, 35);
+      doc.text(`Fecha del Informe: ${new Date().toLocaleDateString()}`, 14, 40);
+      doc.text("Cliente / Destinatario: [N/A]", 14, 45);
+      doc.text("Operador / Responsable: [N/A]", 14, 50);
+
+      // --- 2. TABLA DE REGISTROS ---
+      doc.setFont('Arial', 'bold');
+      doc.setFontSize(12);
+      doc.text("REGISTROS DE ENVÍO", 14, 65);
+
+      const tableColumn = ["# Pieza", "Largo (cm)", "Ancho (cm)", "Altura (cm)", "Peso (kg)", "# Sello", "Inicial"];
+      const tableRows = [];
+
+      const sortedEnvios = [...envios[guia]].sort((a, b) => {
+        const itemA = a.numPallet || a.numValija || 'Z';
+        const itemB = b.numPallet || b.numValija || 'Z';
+        return itemA.localeCompare(itemB, undefined, { numeric: true });
+      });
+
+      for (const envio of sortedEnvios) {
+        const inchToCm = (inch) => (parseFloat(inch) * 2.54).toFixed(2);
+        const rowData = [
+          envio.numPallet || envio.numValija || 'Pieza',
+          envio.largo ? inchToCm(envio.largo) : 'N/A',
+          envio.ancho ? inchToCm(envio.ancho) : 'N/A',
+          envio.altura ? inchToCm(envio.altura) : 'N/A',
+          envio.peso || envio.pesoValija || 'N/A',
+          envio.sello || 'N/A',
+          envio.iniciales || envio.inicialesValija || 'N/A'
+        ];
+        tableRows.push(rowData);
+      }
+
+      doc.autoTable(tableColumn, tableRows, {
+        startY: 70,
+        theme: 'grid',
+        headStyles: { fillColor: [0, 123, 255], textColor: 255, fontStyle: 'bold' },
+        styles: { font: 'Arial', fontSize: 9 },
+        margin: { top: 60 }
+      });
+
+      finalY = doc.lastAutoTable.finalY;
+
+      // --- 3. TOTALES ---
+      doc.setFont('Arial', 'bold');
+      doc.setFontSize(12);
+      doc.text("ESTADÍSTICAS TOTALES", 14, finalY + 15);
+
+      let totalPeso = 0, totalVolumen = 0, totalPaquetes = envios[guia].length;
+      for (const envio of envios[guia]) {
+        totalPeso += parseFloat(envio.peso || envio.pesoValija || 0);
+        if (envio.altura && envio.ancho && envio.largo) {
+            const vol = Math.floor((parseFloat(envio.altura) * parseFloat(envio.ancho) * parseFloat(envio.largo)) / 366);
+            totalVolumen += vol;
+        }
+      }
+
+      const totalsData = [
+        ['Total Peso (kg)', totalPeso.toFixed(2)],
+        ['Total Volumen', totalVolumen],
+        ['Total Paquetes', totalPaquetes]
+      ];
+
+      doc.autoTable({
+        startY: finalY + 20,
+        head: [['Campo', 'Valor']],
+        body: totalsData,
+        theme: 'grid',
+        headStyles: { fillColor: [240, 240, 240], textColor: 0, fontStyle: 'bold' },
+        columnStyles: { 0: { fontStyle: 'bold' } },
+        styles: { font: 'Arial', fontSize: 10 },
+        tableWidth: 'wrap'
+      });
+      
+      finalY = doc.lastAutoTable.finalY;
+
+      // --- 4. COMENTARIOS ---
+      if (finalY > pageHeight - 50) { // Add new page if not enough space
+          doc.addPage();
+          finalY = 0;
+      }
+
+      doc.setFont('Arial', 'bold');
+      doc.setFontSize(12);
+      doc.text("COMENTARIOS / OBSERVACIONES", 14, finalY + 20);
+      
+      doc.setFont('Arial', 'normal');
+      doc.setFontSize(10);
+      doc.text("\u2022 Incremento de volumen respecto al envío anterior.", 16, finalY + 27);
+      doc.text("\u2022 Reducción de peso por unidad.", 16, finalY + 32);
+      doc.text("\u2022 Mejor distribución de carga.", 16, finalY + 37);
+
+      // --- SAVE PDF ---
+      doc.save(`Informe-Guia-${guia}.pdf`);
+    }
+
+    function actualizarResumen(guia) {
+      if (!guia || !envios[guia] || envios[guia].length === 0) {
+        resumenDiv.innerHTML = '';
+        generarPdfBtn.classList.add('hidden');
+        resumenContainer.classList.add('hidden');
+        return;
+      };
+
+      let totalPeso = 0, totalPallets = 0, totalValijas = 0, totalPiezas = 0, totalDContainers = 0, totalULDs = 0, totalVolumen = 0, totalWarehouse = 0;
+
+      for (const envio of envios[guia]) {
+        if (envio.tipo === 'valija' && envio.pesoValija) totalPeso += parseFloat(envio.pesoValija);
+        else if (['pallet', 'piezas', 'dcontainer', 'uld'].includes(envio.tipo) && envio.peso) totalPeso += parseFloat(envio.peso);
+
+        if (envio.tipo === 'valija') totalValijas++;
+        else if (envio.tipo === 'pallet') totalPallets++;
+        else if (envio.tipo === 'piezas') totalPiezas++;
+        else if (envio.tipo === 'dcontainer') totalDContainers++;
+        else if (envio.tipo === 'uld') totalULDs++;
+
+        if (['pallet', 'piezas', 'dcontainer', 'uld'].includes(envio.tipo) && envio.altura && envio.ancho && envio.largo) {
+          const alto = parseFloat(envio.altura), ancho = parseFloat(envio.ancho), largo = parseFloat(envio.largo);
+          if (alto > 0 && ancho > 0 && largo > 0) totalVolumen += Math.floor((alto * ancho * largo) / 366);
+        }
+
+        totalWarehouse += parseInt(envio.warehouse, 10) || 0;
+        totalWarehouse += parseInt(envio.warehouse_pallet, 10) || 0;
+      }
+
+      resumenDiv.innerHTML = `
+        <h3>Resumen para Guía: ${guia}</h3>
+        <ul>
+          <li><b>Peso Total:</b> ${totalPeso.toFixed(2)} kg</li>
+          <li><b>Cantidad de Pallets:</b> ${totalPallets}</li>
+          <li><b>Cantidad de Valijas:</b> ${totalValijas}</li>
+          <li><b>Cantidad de Piezas:</b> ${totalPiezas}</li>
+          <li><b>Cantidad de D Containers:</b> ${totalDContainers}</li>
+          <li><b>Cantidad de U.L.D.s:</b> ${totalULDs}</li>
+          <li><b>Volumen Total:</b> ${totalVolumen}</li>
+          <li><b>Cantidad Total de Warehouse:</b> ${totalWarehouse}</li>
+        </ul>
+      `;
+      generarPdfBtn.classList.remove('hidden');
+      resumenContainer.classList.remove('hidden');
+    }
+
+    tipoSelect.addEventListener('change', () => {
+      const selectedType = tipoSelect.value;
+      valijaFields.classList.toggle('hidden', selectedType !== 'valija');
+      palletPiezasFields.classList.toggle('hidden', !['pallet', 'piezas', 'dcontainer', 'uld'].includes(selectedType));
+    });
+
+    guiaInput.addEventListener('input', (e) => {
+        const guia = e.target.value.trim();
+        resumenContainer.classList.toggle('hidden', !guia);
+        indiceItemEnEdicion = null; // Resetear modo edición al cambiar de guía
+        submitButton.textContent = 'Enviar';
+        if(guia){
+            actualizarResumen(guia);
+        } else {
+            resumenDiv.innerHTML = '';
+            generarPdfBtn.classList.add('hidden');
+        }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let inicialesInput;
+      if (tipoSelect.value === 'valija') {
+        inicialesInput = document.getElementById('inicialesValija');
+      } else if (['pallet', 'piezas', 'dcontainer', 'uld'].includes(tipoSelect.value)) {
+        inicialesInput = document.getElementById('iniciales');
+      }
+
+      if (inicialesInput) {
+        const inicialesValue = inicialesInput.value.trim().toUpperCase();
+        if (!/^[A-Z]{2}$/.test(inicialesValue)) {
+          alert("Las iniciales deben ser exactamente 2 letras mayúsculas.");
+          inicialesInput.focus();
+          return;
+        }
+        inicialesInput.value = inicialesValue;
+      }
+
+      const formData = new FormData(form);
+      const envio = Object.fromEntries(formData.entries());
+      const guia = envio.guia;
+
+      if (indiceItemEnEdicion !== null) {
+        // MODO EDICIÓN: Actualizar el item existente
+        envios[guia][indiceItemEnEdicion] = envio;
+      } else {
+        // MODO CREACIÓN: Validar y agregar nuevo item
+        const numeroEnvio = envio.numPallet || envio.numValija;
+        if (numeroEnvio && envios[guia]) {
+          const esDuplicado = envios[guia].some(item => item.numPallet === numeroEnvio || item.numValija === numeroEnvio);
+          if (esDuplicado) {
+            alert(`Error: El número de envío '${numeroEnvio}' ya existe en esta guía.`);
+            return; // Detener el proceso
+          }
+        }
+
+        if (!envios[guia]) {
+          envios[guia] = [];
+        }
+        envios[guia].push(envio);
+      }
+
+      actualizarResumen(guia);
+      saveData();
+
+      // Resetear estado de edición y formulario
+      indiceItemEnEdicion = null;
+      submitButton.textContent = 'Enviar';
+      const guiaValue = guiaInput.value;
+      form.reset();
+      guiaInput.value = guiaValue;
+
+      valijaFields.classList.add('hidden');
+      palletPiezasFields.classList.add('hidden');
+      resumenContainer.classList.remove('hidden');
+    });
+
+    generarPdfBtn.addEventListener('click', generarPDF);
+  </script>
+</body>
+</html>
