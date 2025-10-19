@@ -212,6 +212,8 @@
     let envios = {};
     let indiceItemEnEdicion = null; // Para saber qué item estamos editando
 
+    const logoBM = "/9j/4AAQSkZJRgABAQEAkACQAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCACAAKMDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9U6KKKACiiigAooooAKKKKACiiigAoopksqQxvJI6xxoCzMxwAB1JPpQA4kKCScAV4942/aKgsb290bwL4evviN4jtk3S2uksq28HYebOx2rz2GT1968Q/aC/aC1rx5qVn4T8Fu0VlqV2mn2zISsl/K7bQSeoiByfcKSfSuT/AGg/Ey/Bvw9p/wAFfA9wYb6eFLnxJrEZ2z3LuPuFx03D5jjom1RwaxyuNXPMX9WwekVvL87eS7/d3PlsbnNOjTqVU7QhvLq29lG+nzZ5r48/bJ+N3ijxJe6al9B4TWCYxG10ZY5ArDqvnAuXPrtOM+lQaZ4q+M2pOtzN4312BjzmfUXj/wDHQaq+H7HSfCduqwKst0Bhp9vP0X0FXJvFQzx/Ov2DCcOYLCr4PaS7y1+5bH4pi+IcTiKjk60kuyb/AK+6x3nh/wCM3xu8Ktvi8Vw64nBMOohJcj0yVB/WvYvAf7c9ut5Dp3xD8PS+HJ3O0ajaBpLY+5XlgPoWr5dXxcV6fzpbnxUmoWz291FHPA3BSQZFdtbJMJXjyyopecdH+Gn3o1wvFWNwkrwrSflL3l+Ov3M/UPR9YsfEGm2+oaZeQ39jcKHiuLdw6Op7girlfmR8IfjhrXwD8QLPp0kmo+FLiQfbNIlfIUE8vGT91h69+h9a/R7wf4v0rx54asNe0W5W7029jEkUg4PupHZgcgjsRX5vm2T1crmm9YPZ/o/P8z9myLiDD53Sbh7s1vH9V5fkbNFFFeAfUhRRRQAUUUUAFFFFABRRRQAUUUUAFeA/tSfEB7OztPB1jN5c2oL5+oOp5S2BwE9t54+gPrXv1fn/APFLxifE3xG8SarvLRvdtbwZ7RR/IuPrjP4187nmKeHw3JHeeny6/wCXzPFzXEeyoqH835df8vmZ/wAEtU0mT9qXQrnWL200/TtKsby8jkvJliiRwiwpyxA4Ej15F8QPFaeKPi54019J1uo7zU7hoJlferRCQrHg9xsVQPavMv2jrXzfsNyRkEyKf++gf61V8CXP/FL2BHQR7fyYiv0vw1oU/qTxCeruvxTPyPPq0qmXKktue7+47ubVWbvVVtRY/wAVZbXBNM8w1+0n5uqJqf2gf71OXUGH8VZHmGjzDQV7FGz/AGgxUgnIPBFfSn7C/wAX5fDHjiXwRezs... [truncated]";
+
     // Funciones para los nuevos botones
     function modificarRegistro() {
       const guia = guiaInput.value.trim();
@@ -356,104 +358,202 @@
       const pageHeight = doc.internal.pageSize.height;
       let finalY = 0;
 
-      // --- 1. ENCABEZADO ---
-      doc.setFont('Arial', 'bold');
-      doc.setFontSize(16);
-      doc.text("INFORME DE LA APLICACIÓN", doc.internal.pageSize.width / 2, 20, { align: 'center' });
+      // --- 1. ENCABEZADO --- 
+      function agregarEncabezado(doc, titulo = "CONTROL DE VALIJAS") {
+        doc.addImage(logoBM, 'JPEG', 14, 15, 40, 15);
+        doc.setFont('Arial', 'bold');
+        doc.setFontSize(16);
+        doc.text("ATALLAH BUSINES GROUP INC", doc.internal.pageSize.width / 2, 20, { align: 'center' });
 
-      doc.setFont('Arial', 'normal');
-      doc.setFontSize(10);
-      doc.text(`Número de Guía: ${guia}`, 14, 35);
-      doc.text(`Fecha del Informe: ${new Date().toLocaleDateString()}`, 14, 40);
-      doc.text("Cliente / Destinatario: [N/A]", 14, 45);
-      doc.text("Operador / Responsable: [N/A]", 14, 50);
+        doc.setFont('Arial', 'normal');
+        doc.setFontSize(10);
+        doc.text("8400 NW 25 TH STREET SUIT 100 MIAMI FL 33198", doc.internal.pageSize.width / 2, 27, { align: 'center' });
+        
+        doc.setFont('Arial', 'bold');
+        doc.setFontSize(12);
+        doc.text(titulo, doc.internal.pageSize.width / 2, 35, { align: 'center' });
 
-      // --- 2. TABLA DE REGISTROS ---
-      doc.setFont('Arial', 'bold');
-      doc.setFontSize(12);
-      doc.text("REGISTROS DE ENVÍO", 14, 65);
+        doc.setFont('Arial', 'normal');
+        doc.setFontSize(10);
+        const fecha = new Date().toLocaleDateString();
+        doc.text(`AWB #: ${guia}`, 14, 45);
+        doc.text(fecha, doc.internal.pageSize.width - 14, 45, { align: 'right' });
+      }
 
-      const tableColumn = ["# Pieza", "Largo (cm)", "Ancho (cm)", "Altura (cm)", "Peso (kg)", "# Sello", "Inicial"];
-      const tableRows = [];
+      agregarEncabezado(doc, "CONTROL DE VALIJAS");
 
-      const sortedEnvios = [...envios[guia]].sort((a, b) => {
+      // --- 2. PÁGINA DE VALIJAS ---
+      const valijas = envios[guia].filter(e => e.tipo === 'valija').sort((a, b) => {
+        return (a.numValija || '').localeCompare(b.numValija || '', undefined, { numeric: true });
+      });
+
+      if (valijas.length > 0) {
+        const tableColumn = ["#", "# Pieza", "Cant Warehouse", "No Sello"];
+        const rowsLeft = [];
+        const rowsRight = [];
+
+        for (let i = 0; i < 25; i++) {
+          const valija = valijas[i];
+          rowsLeft.push([ i + 1, valija?.numValija || '', valija?.warehouse || '', valija?.sello || '' ]);
+        }
+        for (let i = 25; i < 50; i++) {
+          const valija = valijas[i];
+          rowsRight.push([ i + 1, valija?.numValija || '', valija?.warehouse || '', valija?.sello || '' ]);
+        }
+
+        doc.autoTable(tableColumn, rowsLeft, {
+          startY: 55,
+          theme: 'grid',
+          headStyles: { fillColor: [0, 123, 255], textColor: 255, fontStyle: 'bold' },
+          styles: { font: 'Arial', fontSize: 9, cellPadding: 2 },
+          margin: { right: doc.internal.pageSize.width / 2 + 2 }
+        });
+
+        doc.autoTable(tableColumn, rowsRight, {
+          startY: 55,
+          theme: 'grid',
+          headStyles: { fillColor: [0, 123, 255], textColor: 255, fontStyle: 'bold' },
+          styles: { font: 'Arial', fontSize: 9, cellPadding: 2 },
+          margin: { left: doc.internal.pageSize.width / 2 + 2 }
+        });
+
+        finalY = doc.lastAutoTable.finalY > finalY ? doc.lastAutoTable.finalY : finalY;
+      }
+
+      // --- 3. PÁGINA DE TODOS LOS ENVÍOS ---
+      const todosLosEnvios = [...envios[guia]].sort((a, b) => {
         const itemA = a.numPallet || a.numValija || 'Z';
         const itemB = b.numPallet || b.numValija || 'Z';
         return itemA.localeCompare(itemB, undefined, { numeric: true });
       });
 
-      for (const envio of sortedEnvios) {
-        const inchToCm = (inch) => (parseFloat(inch) * 2.54).toFixed(2);
-        const rowData = [
-          envio.numPallet || envio.numValija || 'Pieza',
-          envio.largo ? inchToCm(envio.largo) : 'N/A',
-          envio.ancho ? inchToCm(envio.ancho) : 'N/A',
-          envio.altura ? inchToCm(envio.altura) : 'N/A',
-          envio.peso || envio.pesoValija || 'N/A',
-          envio.sello || 'N/A',
-          envio.iniciales || envio.inicialesValija || 'N/A'
-        ];
-        tableRows.push(rowData);
+      if (todosLosEnvios.length > 0) {
+        doc.addPage();
+        agregarEncabezado(doc, "LOCALIZACION CARGA EXPRESS Y PRIORITY");
+        
+        const tableColumn = ["#", "No. Envio", "Descripcion", "Largo", "Ancho", "Alto", "Volumen", "Peso", "Inicial"];
+        const tableRows = [];
+
+        todosLosEnvios.forEach((envio, index) => {
+            const volumen = (envio.altura && envio.ancho && envio.largo)
+                ? Math.floor((parseFloat(envio.altura) * parseFloat(envio.ancho) * parseFloat(envio.largo)) / 366)
+                : '';
+
+            const rowData = [
+                index + 1,
+                envio.numPallet || envio.numValija || '',
+                envio.tipo || '',
+                envio.largo || '',
+                envio.ancho || '',
+                envio.altura || '',
+                volumen,
+                envio.peso || envio.pesoValija || '',
+                envio.iniciales || envio.inicialesValija || ''
+            ];
+            tableRows.push(rowData);
+        });
+
+        doc.autoTable(tableColumn, tableRows, {
+          startY: 55,
+          theme: 'grid',
+          headStyles: { fillColor: [0, 123, 255], textColor: 255, fontStyle: 'bold' },
+          styles: { font: 'Arial', fontSize: 9 }
+        });
+        finalY = doc.lastAutoTable.finalY;
       }
 
-      doc.autoTable(tableColumn, tableRows, {
-        startY: 70,
-        theme: 'grid',
-        headStyles: { fillColor: [0, 123, 255], textColor: 255, fontStyle: 'bold' },
-        styles: { font: 'Arial', fontSize: 9 },
-        margin: { top: 60 }
-      });
+      // --- 4. PÁGINA DE RESUMEN ---
+      doc.addPage();
+      // Custom Header for Summary Page
+      doc.setFont('Arial', 'bold');
+      doc.setFontSize(16);
+      doc.text("ATALLAH BUSINES GROUP INC", doc.internal.pageSize.width / 2, 20, { align: 'center' });
 
-      finalY = doc.lastAutoTable.finalY;
-
-      // --- 3. TOTALES ---
+      doc.setFont('Arial', 'normal');
+      doc.setFontSize(10);
+      doc.text("8400 NW 25 TH STREET SUIT 100 MIAMI FL 33198", doc.internal.pageSize.width / 2, 27, { align: 'center' });
+      
       doc.setFont('Arial', 'bold');
       doc.setFontSize(12);
-      doc.text("ESTADÍSTICAS TOTALES", 14, finalY + 15);
+      doc.text("BM CARGOS WAREHOUSE", doc.internal.pageSize.width / 2, 35, { align: 'center' });
+      doc.setFontSize(10);
+      doc.text("(305) 593 5383", doc.internal.pageSize.width / 2, 40, { align: 'center' });
 
-      let totalPeso = 0, totalVolumen = 0, totalPaquetes = envios[guia].length;
+      doc.setFont('Arial', 'normal');
+      const fecha = new Date().toLocaleDateString();
+      doc.text(`AWB #: ${guia}`, 14, 45);
+      doc.text(fecha, doc.internal.pageSize.width - 14, 45, { align: 'right' });
+
+      // --- Totals Calculation ---
+      let totalPeso = 0, totalValijas = 0, totalPiezas = 0, totalDContainers = 0, totalULDs = 0, totalVolumen = 0, totalWarehouse = 0;
       for (const envio of envios[guia]) {
         totalPeso += parseFloat(envio.peso || envio.pesoValija || 0);
+        if (envio.tipo === 'valija') totalValijas++;
+        else if (envio.tipo === 'piezas') totalPiezas++;
+        else if (envio.tipo === 'dcontainer') totalDContainers++;
+        else if (envio.tipo === 'uld') totalULDs++;
         if (envio.altura && envio.ancho && envio.largo) {
             const vol = Math.floor((parseFloat(envio.altura) * parseFloat(envio.ancho) * parseFloat(envio.largo)) / 366);
             totalVolumen += vol;
         }
+        totalWarehouse += parseInt(envio.warehouse || envio.warehouse_pallet || 0, 10);
       }
+      const totalPaquetes = envios[guia].length;
 
-      const totalsData = [
-        ['Total Peso (kg)', totalPeso.toFixed(2)],
-        ['Total Volumen', totalVolumen],
-        ['Total Paquetes', totalPaquetes]
-      ];
+      // --- New Summary Layout ---
+      const startY = 65;
+      const startX = 14;
+      const valueX = 80;
+      const lineSpacing = 10; // Increased line spacing
+      let currentY = startY;
 
-      doc.autoTable({
-        startY: finalY + 20,
-        head: [['Campo', 'Valor']],
-        body: totalsData,
-        theme: 'grid',
-        headStyles: { fillColor: [240, 240, 240], textColor: 0, fontStyle: 'bold' },
-        columnStyles: { 0: { fontStyle: 'bold' } },
-        styles: { font: 'Arial', fontSize: 10 },
-        tableWidth: 'wrap'
-      });
-      
-      finalY = doc.lastAutoTable.finalY;
-
-      // --- 4. COMENTARIOS ---
-      if (finalY > pageHeight - 50) { // Add new page if not enough space
-          doc.addPage();
-          finalY = 0;
+      function drawUnderlinedText(doc, text, x, y) {
+          const textString = String(text);
+          const textWidth = doc.getTextWidth(textString);
+          doc.text(textString, x, y);
+          doc.line(x, y + 1, x + textWidth, y + 1);
       }
 
       doc.setFont('Arial', 'bold');
       doc.setFontSize(12);
-      doc.text("COMENTARIOS / OBSERVACIONES", 14, finalY + 20);
+
+      doc.text("D Container", startX, currentY);
+      drawUnderlinedText(doc, String(totalDContainers), valueX, currentY);
+      currentY += lineSpacing;
+
+      doc.text("U.L.D.", startX, currentY);
+      drawUnderlinedText(doc, String(totalULDs), valueX, currentY);
+      doc.text("SEAL", valueX + 40, currentY);
+      drawUnderlinedText(doc, "0", valueX + 60, currentY);
+      currentY += lineSpacing;
+
+      doc.text("PCS", startX, currentY);
+      drawUnderlinedText(doc, String(totalPiezas), valueX, currentY);
+      currentY += lineSpacing;
+
+      doc.text("BAGS", startX, currentY);
+      drawUnderlinedText(doc, String(totalValijas), valueX, currentY);
+      currentY += lineSpacing;
       
-      doc.setFont('Arial', 'normal');
-      doc.setFontSize(10);
-      doc.text("\u2022 Incremento de volumen respecto al envío anterior.", 16, finalY + 27);
-      doc.text("\u2022 Reducción de peso por unidad.", 16, finalY + 32);
-      doc.text("\u2022 Mejor distribución de carga.", 16, finalY + 37);
+      doc.text("CREATE", startX, currentY);
+      drawUnderlinedText(doc, "0", valueX, currentY);
+      currentY += lineSpacing;
+
+      doc.text("TOTAL", startX, currentY);
+      drawUnderlinedText(doc, String(totalPaquetes), valueX, currentY);
+      
+      currentY += lineSpacing * 1.8; // Extra space
+
+      doc.text("PESO TOTAL", startX, currentY);
+      drawUnderlinedText(doc, totalPeso.toFixed(2) + " kg", valueX, currentY);
+      currentY += lineSpacing;
+
+      doc.text("VOLUMEN TOTAL", startX, currentY);
+      drawUnderlinedText(doc, String(totalVolumen), valueX, currentY);
+      currentY += lineSpacing;
+
+      doc.text("CANTIDAD TOTAL DE WR", startX, currentY);
+      drawUnderlinedText(doc, String(totalWarehouse), valueX, currentY);
 
       // --- SAVE PDF ---
       doc.save(`Informe-Guia-${guia}.pdf`);
