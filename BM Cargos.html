@@ -471,6 +471,26 @@
       doc.setFontSize(10);
       doc.text("(305) 593 5383", doc.internal.pageSize.width / 2, 40, { align: 'center' });
 
+      // --- UN-3481 Box ---
+      const boxWidth = 40;
+      const boxHeight = 10;
+      const boxX = doc.internal.pageSize.width - boxWidth - 14; // 14 is the right margin
+      const boxY = 48; // Below the header
+
+      doc.setDrawColor(0);
+      doc.setFillColor(255, 255, 255);
+      doc.rect(boxX, boxY, boxWidth, boxHeight, 'FD'); // Fill and Stroke
+
+      doc.setFont('Times-Roman', 'bold');
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.text('UN-3481', boxX + boxWidth / 2, boxY + boxHeight / 2 + 1, { align: 'center', baseline: 'middle' });
+
+      // Reset font for the rest of the document
+      doc.setFont('Arial', 'normal');
+      doc.setFontSize(10);
+      // --- End UN-3481 Box ---
+
       // --- Totals Calculation ---
       let totalPeso = 0, totalValijas = 0, totalPiezas = 0, totalDContainers = 0, totalULDs = 0, totalVolumen = 0, totalWarehouse = 0;
       for (const envio of envios[guia]) {
@@ -488,10 +508,10 @@
       const totalPaquetes = envios[guia].length;
 
       // --- New Summary Layout ---
-      const startY = 65;
+      const startY = 70;
       const startX = 14;
-      const valueX = 80;
-      const lineSpacing = 10; // Increased line spacing
+      const valueX = 100;
+      const lineSpacing = 13; // Increased line spacing
       let currentY = startY;
 
       function drawUnderlinedText(doc, text, x, y) {
@@ -502,7 +522,7 @@
       }
 
       doc.setFont('Arial', 'bold');
-      doc.setFontSize(12);
+      doc.setFontSize(15);
 
       doc.text("D Container", startX, currentY);
       drawUnderlinedText(doc, String(totalDContainers), valueX, currentY);
@@ -536,10 +556,10 @@
       currentY += lineSpacing;
 
       doc.text("VOLUMEN TOTAL", startX, currentY);
-      drawUnderlinedText(doc, String(totalVolumen), valueX, currentY);
+      drawUnderlinedText(doc, String(totalVolumen) + " kg", valueX, currentY);
       currentY += lineSpacing;
 
-      doc.text("CANTIDAD TOTAL DE WR", startX, currentY);
+      doc.text("TOTAL WR", startX, currentY);
       drawUnderlinedText(doc, String(totalWarehouse), valueX, currentY);
 
       // --- SAVE PDF ---
