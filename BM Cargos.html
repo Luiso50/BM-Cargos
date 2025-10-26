@@ -118,6 +118,7 @@
   <script src="logo_data.js"></script>
 </head>
 <body>
+  <div id="contenido" style="display: none;">
   <div class="main-container">
     <div class="button-container">
       <button class="btn-square" onclick="modificarRegistro()" title="Modificar Registro">MR</button>
@@ -552,7 +553,7 @@
       currentY += lineSpacing * 1.8; // Extra space
 
       doc.text("PESO TOTAL", startX, currentY);
-      drawUnderlinedText(doc, totalPeso.toFixed(2) + " kg", valueX, currentY);
+      drawUnderlinedText(doc, Math.floor(totalPeso) + " kg", valueX, currentY);
       currentY += lineSpacing;
 
       doc.text("VOLUMEN TOTAL", startX, currentY);
@@ -756,6 +757,19 @@
 
       input.click();
     }
+  </script>
+  </div>
+  <script>
+    function checkPassword() {
+      var password = prompt("Por favor, ingrese la contraseña para acceder:", "");
+      if (password === "BMCARGOS") {
+        document.getElementById("contenido").style.display = "block";
+      } else {
+        alert("Contraseña incorrecta.");
+        checkPassword();
+      }
+    }
+    window.onload = checkPassword;
   </script>
 </body>
 </html>
