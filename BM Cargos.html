@@ -494,10 +494,11 @@
       // --- End UN-3481 Box ---
 
       // --- Totals Calculation ---
-      let totalPeso = 0, totalValijas = 0, totalPiezas = 0, totalDContainers = 0, totalULDs = 0, totalVolumen = 0, totalWarehouse = 0;
+      let totalPeso = 0, totalValijas = 0, totalPallets = 0, totalPiezas = 0, totalDContainers = 0, totalULDs = 0, totalVolumen = 0, totalWarehouse = 0;
       for (const envio of envios[guia]) {
         totalPeso += parseFloat(envio.peso || envio.pesoValija || 0);
         if (envio.tipo === 'valija') totalValijas++;
+        else if (envio.tipo === 'pallet') totalPallets++;
         else if (envio.tipo === 'piezas') totalPiezas++;
         else if (envio.tipo === 'dcontainer') totalDContainers++;
         else if (envio.tipo === 'uld') totalULDs++;
@@ -534,6 +535,10 @@
       drawUnderlinedText(doc, String(totalULDs), valueX, currentY);
       doc.text("SEAL", valueX + 40, currentY);
       drawUnderlinedText(doc, "0", valueX + 60, currentY);
+      currentY += lineSpacing;
+
+      doc.text("PALLET", startX, currentY);
+      drawUnderlinedText(doc, String(totalPallets), valueX, currentY);
       currentY += lineSpacing;
 
       doc.text("PCS", startX, currentY);
