@@ -125,6 +125,7 @@
       <button class="btn-square" onclick="modificarRegistro()" title="Modificar Registro">MR</button>
       <button class="btn-square" onclick="borrarRegistro()" title="Borrar Registro">BR</button>
       <button class="btn-square" onclick="buscarGuia()" title="Buscar Guía">BG</button>
+      <button class="btn-square" onclick="modificarGuia()" title="Modificar Guía">MG</button>
       <button class="btn-square" onclick="eliminarGuia()" title="Eliminar Guía">EG</button>
       <button class="btn-square" onclick="exportarDatos()" title="Exportar Datos">ED</button>
       <button class="btn-square" onclick="importarDatos()" title="Importar Datos">ID</button>
@@ -330,6 +331,38 @@
       } else {
         alert("No se encontró ninguna guía con ese número.");
       }
+    }
+
+    function modificarGuia() {
+      const guiaActual = prompt("Ingrese el número de la guía que desea modificar:");
+      if (!guiaActual || !envios[guiaActual]) {
+        alert("La guía ingresada no existe.");
+        return;
+      }
+
+      const nuevaGuia = prompt(`Ingrese el nuevo número para la guía "${guiaActual}":`);
+      if (!nuevaGuia) return;
+
+      if (envios[nuevaGuia]) {
+        alert(`La guía "${nuevaGuia}" ya existe. Por favor, elija un número de guía diferente.`);
+        return;
+      }
+
+      // Renombrar la clave
+      envios[nuevaGuia] = envios[guiaActual];
+      delete envios[guiaActual];
+
+      // Actualizar el número de guía dentro de cada objeto de envío
+      envios[nuevaGuia].forEach(envio => {
+        envio.guia = nuevaGuia;
+      });
+
+      saveData();
+      alert(`La guía "${guiaActual}" ha sido renombrada a "${nuevaGuia}".`);
+
+      // Actualizar la interfaz
+      guiaInput.value = nuevaGuia;
+      actualizarResumen(nuevaGuia);
     }
 
     function saveData() {
