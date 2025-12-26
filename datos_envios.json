@@ -1,0 +1,699 @@
+{
+  "810-5027-5080": [
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL001",
+      "pesoValija": "24.60",
+      "sello": "SEL0975",
+      "warehouse": 3,
+      "inicialesValija": "PP"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL002",
+      "pesoValija": "15.73",
+      "sello": "SEL4858",
+      "warehouse": 4,
+      "inicialesValija": "YU"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL003",
+      "pesoValija": "27.72",
+      "sello": "SEL5885",
+      "warehouse": 2,
+      "inicialesValija": "WF"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL004",
+      "pesoValija": "23.51",
+      "sello": "SEL3883",
+      "warehouse": 4,
+      "inicialesValija": "ZT"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL005",
+      "pesoValija": "26.62",
+      "sello": "SEL8136",
+      "warehouse": 2,
+      "inicialesValija": "HM"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL006",
+      "pesoValija": "21.82",
+      "sello": "SEL4624",
+      "warehouse": 2,
+      "inicialesValija": "QM"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL007",
+      "pesoValija": "22.34",
+      "sello": "SEL5981",
+      "warehouse": 1,
+      "inicialesValija": "AZ"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL008",
+      "pesoValija": "25.72",
+      "sello": "SEL8391",
+      "warehouse": 4,
+      "inicialesValija": "FH"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL009",
+      "pesoValija": "15.34",
+      "sello": "SEL4531",
+      "warehouse": 2,
+      "inicialesValija": "YS"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL010",
+      "pesoValija": "22.74",
+      "sello": "SEL2524",
+      "warehouse": 3,
+      "inicialesValija": "LM"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL011",
+      "pesoValija": "28.01",
+      "sello": "SEL5528",
+      "warehouse": 4,
+      "inicialesValija": "XF"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL012",
+      "pesoValija": "27.05",
+      "sello": "SEL5471",
+      "warehouse": 2,
+      "inicialesValija": "MQ"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL013",
+      "pesoValija": "20.09",
+      "sello": "SEL3356",
+      "warehouse": 1,
+      "inicialesValija": "DL"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL014",
+      "pesoValija": "17.84",
+      "sello": "SEL8401",
+      "warehouse": 4,
+      "inicialesValija": "KU"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL015",
+      "pesoValija": "15.94",
+      "sello": "SEL0424",
+      "warehouse": 5,
+      "inicialesValija": "UR"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL016",
+      "pesoValija": "24.01",
+      "sello": "SEL3562",
+      "warehouse": 4,
+      "inicialesValija": "HE"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL017",
+      "pesoValija": "17.70",
+      "sello": "SEL2623",
+      "warehouse": 2,
+      "inicialesValija": "CD"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL018",
+      "pesoValija": "22.58",
+      "sello": "SEL9328",
+      "warehouse": 1,
+      "inicialesValija": "ZF"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL019",
+      "pesoValija": "27.46",
+      "sello": "SEL0139",
+      "warehouse": 4,
+      "inicialesValija": "RE"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL020",
+      "pesoValija": "17.92",
+      "sello": "SEL0465",
+      "warehouse": 3,
+      "inicialesValija": "KE"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL021",
+      "pesoValija": "18.94",
+      "sello": "SEL9448",
+      "warehouse": 3,
+      "inicialesValija": "JY"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL022",
+      "pesoValija": "18.90",
+      "sello": "SEL5670",
+      "warehouse": 4,
+      "inicialesValija": "DN"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL023",
+      "pesoValija": "25.53",
+      "sello": "SEL5154",
+      "warehouse": 3,
+      "inicialesValija": "LF"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL024",
+      "pesoValija": "23.35",
+      "sello": "SEL1142",
+      "warehouse": 1,
+      "inicialesValija": "TA"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL025",
+      "pesoValija": "22.27",
+      "sello": "SEL3770",
+      "warehouse": 4,
+      "inicialesValija": "IY"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL026",
+      "pesoValija": "28.52",
+      "sello": "SEL4053",
+      "warehouse": 3,
+      "inicialesValija": "NJ"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL027",
+      "pesoValija": "20.78",
+      "sello": "SEL1226",
+      "warehouse": 1,
+      "inicialesValija": "US"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL028",
+      "pesoValija": "17.62",
+      "sello": "SEL8877",
+      "warehouse": 2,
+      "inicialesValija": "PY"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL029",
+      "pesoValija": "23.75",
+      "sello": "SEL9045",
+      "warehouse": 1,
+      "inicialesValija": "PI"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL030",
+      "pesoValija": "28.79",
+      "sello": "SEL1854",
+      "warehouse": 3,
+      "inicialesValija": "HF"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL031",
+      "pesoValija": "18.78",
+      "sello": "SEL8457",
+      "warehouse": 5,
+      "inicialesValija": "HW"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL032",
+      "pesoValija": "26.07",
+      "sello": "SEL5028",
+      "warehouse": 2,
+      "inicialesValija": "MC"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL033",
+      "pesoValija": "21.38",
+      "sello": "SEL2311",
+      "warehouse": 2,
+      "inicialesValija": "XU"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL034",
+      "pesoValija": "16.77",
+      "sello": "SEL1041",
+      "warehouse": 4,
+      "inicialesValija": "EE"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL035",
+      "pesoValija": "17.02",
+      "sello": "SEL7657",
+      "warehouse": 5,
+      "inicialesValija": "LT"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL036",
+      "pesoValija": "17.73",
+      "sello": "SEL7500",
+      "warehouse": 3,
+      "inicialesValija": "YR"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL037",
+      "pesoValija": "27.46",
+      "sello": "SEL1019",
+      "warehouse": 2,
+      "inicialesValija": "KH"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL038",
+      "pesoValija": "29.15",
+      "sello": "SEL8915",
+      "warehouse": 1,
+      "inicialesValija": "GR"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL039",
+      "pesoValija": "25.13",
+      "sello": "SEL8701",
+      "warehouse": 2,
+      "inicialesValija": "ZW"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "valija",
+      "numValija": "VAL040",
+      "pesoValija": "25.63",
+      "sello": "SEL6347",
+      "warehouse": 3,
+      "inicialesValija": "VM"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC001",
+      "peso": 178,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 5,
+      "iniciales": "RV"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC002",
+      "peso": 257,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 3,
+      "iniciales": "MS"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC003",
+      "peso": 199,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 1,
+      "iniciales": "TA"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC004",
+      "peso": 150,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 1,
+      "iniciales": "JC"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC005",
+      "peso": 249,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 2,
+      "iniciales": "OD"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numValija": "",
+      "pesoValija": "",
+      "sello": "",
+      "warehouse": "",
+      "inicialesValija": "",
+      "numPallet": "DC006",
+      "peso": "234",
+      "largo": "58",
+      "ancho": "42",
+      "altura": "45",
+      "warehouse_pallet": "1",
+      "iniciales": "TG"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC007",
+      "peso": 281,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 1,
+      "iniciales": "QQ"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC008",
+      "peso": 245,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 4,
+      "iniciales": "KW"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC009",
+      "peso": 284,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 2,
+      "iniciales": "CF"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC010",
+      "peso": 185,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 4,
+      "iniciales": "QJ"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC011",
+      "peso": 273,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 1,
+      "iniciales": "DM"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC012",
+      "peso": 168,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 3,
+      "iniciales": "NA"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC013",
+      "peso": 256,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 4,
+      "iniciales": "LC"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC014",
+      "peso": 237,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 2,
+      "iniciales": "EW"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC015",
+      "peso": 292,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 3,
+      "iniciales": "TX"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC016",
+      "peso": 198,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 5,
+      "iniciales": "GF"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC017",
+      "peso": 234,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 1,
+      "iniciales": "OM"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC018",
+      "peso": 220,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 1,
+      "iniciales": "UN"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC019",
+      "peso": 160,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 2,
+      "iniciales": "NP"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC020",
+      "peso": 297,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 2,
+      "iniciales": "BO"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC021",
+      "peso": 260,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 3,
+      "iniciales": "SV"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "dcontainer",
+      "numPallet": "DC022",
+      "peso": 161,
+      "largo": 58,
+      "ancho": 42,
+      "altura": 45,
+      "warehouse_pallet": 3,
+      "iniciales": "MA"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "piezas",
+      "numPallet": "P001",
+      "peso": 101,
+      "largo": 76,
+      "ancho": 49,
+      "altura": 36,
+      "warehouse_pallet": 5,
+      "iniciales": "LE"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "piezas",
+      "numPallet": "P002",
+      "peso": 70,
+      "largo": 72,
+      "ancho": 16,
+      "altura": 24,
+      "warehouse_pallet": 3,
+      "iniciales": "AQ"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "piezas",
+      "numPallet": "P003",
+      "peso": 177,
+      "largo": 66,
+      "ancho": 27,
+      "altura": 44,
+      "warehouse_pallet": 4,
+      "iniciales": "ZG"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "piezas",
+      "numPallet": "P004",
+      "peso": 60,
+      "largo": 65,
+      "ancho": 30,
+      "altura": 46,
+      "warehouse_pallet": 2,
+      "iniciales": "KD"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "piezas",
+      "numPallet": "P005",
+      "peso": 162,
+      "largo": 71,
+      "ancho": 14,
+      "altura": 30,
+      "warehouse_pallet": 5,
+      "iniciales": "HL"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "pallet",
+      "numPallet": "PAL001",
+      "peso": 438,
+      "largo": 45,
+      "ancho": 38,
+      "altura": 26,
+      "warehouse_pallet": 2,
+      "iniciales": "GB"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "pallet",
+      "numPallet": "PAL002",
+      "peso": 363,
+      "largo": 51,
+      "ancho": 60,
+      "altura": 25,
+      "warehouse_pallet": 2,
+      "iniciales": "KN"
+    },
+    {
+      "guia": "810-5027-5080",
+      "tipo": "pallet",
+      "numPallet": "PAL003",
+      "peso": 147,
+      "largo": 30,
+      "ancho": 37,
+      "altura": 65,
+      "warehouse_pallet": 1,
+      "iniciales": "UN"
+    }
+  ]
+}
